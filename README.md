@@ -59,6 +59,6 @@ Rebuilds images if there have been any changes in the Dockerfiles or dependencie
 
 ## Reference
 
-Docker: https://www.youtube.com/watch?v=pg19Z8LL06w
-Express: https://www.youtube.com/watch?v=SccSCuHhOw0
-Mongoose: https://www.youtube.com/watch?v=fgTGADljAeg
+Docker: https://www.youtube.com/watch?v=pg19Z8LL06w  
+Express: https://www.youtube.com/watch?v=SccSCuHhOw0  
+Mongoose: https://www.youtube.com/watch?v=fgTGADljAeg  
