@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    container_name: post-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+  
+  app:
+    build: .
+    container_name: post-app
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    environment:
+      - MONGO_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@post-mongo:27017/${MONGO_DB_NAME}?authSource=admin
+      - APP_PORT=${APP_PORT}
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:

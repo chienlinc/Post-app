@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Your Posts</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <h1>Your Posts</h1>
+        <button onclick="window.location.href='/posts/create'">New Post</button>
+    </div>
+
+    <div class="post-list">
+        <% posts.forEach(post => { %>
+            <div class="post-card">
+                <h2><%= post.locationName %></h2>
+                <p><strong>Description:</strong> <%= post.locationDescription %></p>
+                <p><strong>Posted Date:</strong> <%= post.postedDate.toDateString() %></p>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
