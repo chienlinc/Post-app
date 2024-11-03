@@ -1,0 +1,25 @@
+GET http://localhost:3000/posts
+
+###
+
+GET http://localhost:3000/posts/create
+
+###
+
+POST http://localhost:3000/posts/create
+Content-Type: application/json
+
+{
+    "locationName": "Test Location",
+    "locationDescription": "Test Description"
+}
+
+###
+
+POST http://localhost:3000/posts/create
+Content-Type: application/json
+
+{}
+
+###
+

@@ -12,6 +12,10 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/create", (req, res) => {
+    res.render("posts/create")
+})
+
 router.post("/create", async (req, res) => {
     const post = new Post({
         locationName: req.body.locationName,
@@ -21,13 +25,14 @@ router.post("/create", async (req, res) => {
         await post.save()
         res.redirect("/posts");
     } catch (err){
-        console.error("Error saving a post:", err);
-        res.status(500).send("Error saving a post");
+        if (err.name === "ValidationError") {
+            console.error("Validation error while saving post:", err.errors);
+            res.status(400).send("Validation error: Missing required fields.");
+        } else {
+            console.error("Error saving a post:", err);
+            res.status(500).send("Error saving a post");
+        }
     }
-})
-
-router.get("/create", (req, res) => {
-    res.render("posts/create")
 })
 
 module.exports = router
