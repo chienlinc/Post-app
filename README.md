@@ -1,6 +1,6 @@
 # POST App
 
-A scalable full-stack web application built with Node.js, Express, and MongoDB, featuring RESTful API endpoints, dynamic EJS views, and environment variable support. 
+A scalable full-stack web application built with Node.js, Express, MongoDB, and Oracle Database, featuring RESTful API endpoints, dynamic EJS views, and environment variable support. 
 
 This project includes a testing suite configured with Mocha, Chai, Sinon, Supertest, and Cheerio for comprehensive testing of backend functionality, API endpoints, and HTML content parsing.
 
@@ -8,12 +8,14 @@ This project includes a testing suite configured with Mocha, Chai, Sinon, Supert
 
 1. Node.js: JavaScript runtime for server-side programming.
 2. Express: Web framework for building RESTful APIs.
-3. MongoDB: NoSQL database for data storage.
-4. Mongoose: ODM for MongoDB to model application data.
-5. EJS: Template engine for generating dynamic HTML.
-6. Dotenv: Manage environment variables.
-7. Docker: Deployment of applications within lightweight containers.
-8. Docker Compose: Defining and managing multi-container applications
+3. MongoDB: NoSQL database for store post data.
+4. Oracle Database: Relational database to store user profile data.
+5. Mongoose: ODM for MongoDB to model application data.
+6. oracledb: Node.js module to interact with Oracle Database.
+7. EJS: Template engine for generating dynamic HTML.
+8. Dotenv: Manage environment variables.
+9. Docker: Deployment of applications within lightweight containers.
+10. Docker Compose: Defining and managing multi-container applications.
 
 ## Testing Tools
 
@@ -32,6 +34,10 @@ This project includes a testing suite configured with Mocha, Chai, Sinon, Supert
 2. Create a post
 
 ![Create a post](images/create-a-post.png)
+
+3. View a user profile
+
+![View a profile](images/view-a-profile)
 
 ## Installation
 
@@ -77,7 +83,10 @@ Rebuilds images if there have been any changes in the Dockerfiles or dependencie
 
 Docker: https://www.youtube.com/watch?v=pg19Z8LL06w  
 Express: https://www.youtube.com/watch?v=SccSCuHhOw0  
-Mongoose: https://www.youtube.com/watch?v=fgTGADljAeg  
+MongoDB: https://www.mongodb.com/docs/manual/introduction/  
+Mongoose: https://mongoosejs.com/docs/guide.html   
+Oracle: https://www.oracle.com/database/technologies/appdev/quickstartnodeonprem.html  
+oracledb: https://node-oracledb.readthedocs.io/en/latest/user_guide/introduction.html  
 Mocha: https://mochajs.org/#getting-started   
 Chai: https://www.chaijs.com/api/    
 Sinon: https://sinonjs.org/  

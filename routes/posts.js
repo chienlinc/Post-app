@@ -1,6 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const Post = require('../models/post')
+const { connectMongoDB } = require('../config/mongoConfig');
+
+connectMongoDB()
 
 router.get("/", async (req, res) => {
     try {

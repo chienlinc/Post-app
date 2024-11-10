@@ -8,4 +8,8 @@ RUN npm install
 
 COPY . .
 
-CMD ["node", "server.js"]
+COPY wait-for-services.sh /app/wait-for-services.sh
+
+RUN chmod +x /app/wait-for-services.sh
+
+CMD ["/app/wait-for-services.sh"]
