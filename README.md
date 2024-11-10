@@ -37,7 +37,7 @@ This project includes a testing suite configured with Mocha, Chai, Sinon, Supert
 
 3. View a user profile
 
-![View a profile](images/view-a-profile)
+![View a profile](images/view-a-profile.png)
 
 ## Installation
 
