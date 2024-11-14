@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const app = express();
 const APP_PORT = process.env.APP_PORT || 3000
+const { connectMongoDB } = require('./config/mongoConfig')
+connectMongoDB()
 
 app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true}))

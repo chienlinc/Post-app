@@ -22,13 +22,26 @@ app.use("/posts", postRouter)
 
 describe("Posts API Integration Test", () => {
     before(async () => {
-        await mongoose.connect(MONGO_URI)
-        await Post.deleteMany({})
+        try {
+            await mongoose.connect(MONGO_URI)
+            console.log(`Connected to MongoDB: ${MONGO_URI}`)
+            await Post.deleteMany({})
+            console.log(`Posts collection cleared.`)
+        } catch (error) {
+            console.error("Error during MongoDB setup:", error)
+            throw error
+        }
     })
 
     after(async () => {
-        await mongoose.connection.dropDatabase()
-        await mongoose.connection.close()
+        try {
+            await mongoose.connection.dropDatabase()
+            console.log(`Database dropped successfully.`)
+            await mongoose.connection.close()
+            console.log(`MongoDB connection closed.`)
+        } catch (error) {
+            console.error('Error during cleanup:', error)
+        }
     })
 
     describe("GET /posts", () => {
@@ -39,11 +52,12 @@ describe("Posts API Integration Test", () => {
                 locationName: "Test Location 1",
                 locationDescription: "Test Description 1"
             })
+            await post1.save()
+
             const post2 = new Post({
                 locationName: "Test Location 2",
                 locationDescription: "Test Description 2"
             })
-            await post1.save()
             await post2.save()
 
             const res = await request(app).get("/posts")

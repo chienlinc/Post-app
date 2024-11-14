@@ -1,13 +1,10 @@
 const express = require("express")
 const router = express.Router()
 const Post = require('../models/post')
-const { connectMongoDB } = require('../config/mongoConfig');
-
-connectMongoDB()
 
 router.get("/", async (req, res) => {
     try {
-        const posts = await Post.find( {} ).sort( { postedDate: -1 } )
+        const posts = await Post.find({}).sort({ postedDate: -1 })
         res.render("posts/index", { posts })
     } catch (err) {
         console.error("Error fetching posts:", err)
