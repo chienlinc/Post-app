@@ -2,7 +2,7 @@
 
 A scalable full-stack web application built with Node.js, Express, MongoDB, and Oracle Database, featuring RESTful API endpoints, dynamic EJS views, and environment variable support. 
 
-This project includes a testing suite configured with Mocha, Chai, Sinon, Supertest, and Cheerio for comprehensive testing of backend functionality, API endpoints, and HTML content parsing.
+This project includes a testing suite configured with Mocha, Chai, Sinon, Supertest, and Cheerio for comprehensive testing of backend functionality, API endpoints, and HTML content parsing. It also incorporates continuous integration and deployment pipelines with Jenkins for automated testing, building, and deployment.
 
 ## Technologies Used
 
@@ -16,6 +16,7 @@ This project includes a testing suite configured with Mocha, Chai, Sinon, Supert
 8. Dotenv: Manage environment variables.
 9. Docker: Deployment of applications within lightweight containers.
 10. Docker Compose: Defining and managing multi-container applications.
+11. Jenkins: Automating CI/CD pipelines, enabling testing, building, and deploying applications seamlessly.
 
 ## Testing Tools
 
@@ -50,6 +51,15 @@ npm install
 2. Create a .env file
 
 3. Setup environment variables
+
+## Jenkins Stages
+
+1. Build App: Installs dependencies and prepares the application for testing.
+2. Test App: Runs Mocha tests with environment variables securely injected.
+3. Build Docker Image: Creates Docker images for the application.
+4. Push Docker Image: Pushes the built image to a Docker registry.
+
+![Post App Pipeline](images/post-app-pipeline.png)
 
 ## Scripts
 
@@ -92,3 +102,4 @@ Chai: https://www.chaijs.com/api/
 Sinon: https://sinonjs.org/  
 Supertest: https://www.npmjs.com/package/supertest   
 Cheerio: https://cheerio.js.org/docs/intro   
+Jenkins: https://www.jenkins.io/doc/book/pipeline/
